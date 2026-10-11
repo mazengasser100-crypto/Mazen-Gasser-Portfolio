@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazen Gasser</title>
+    <link rel="icon" type="image/x-icon" href="portfolio.image/MG.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="choco-viva.css">
+<style>
+.livecart-figma-link { text-decoration:none; color:inherit; cursor:pointer; }
+.livecart-figma-link .phone-mockup { transition:transform .25s ease, filter .25s ease; }
+.livecart-figma-link:hover .phone-mockup { transform:translateY(-9px); filter:drop-shadow(0 0 12px rgba(72,213,255,.38)); }
+.livecart-figma-link:focus-visible { outline:3px solid #61dfff; outline-offset:8px; border-radius:20px; }
+.livecart-title-link { color:inherit; text-decoration:none; }
+.livecart-title-link:hover { color:#72dcff; }
+</style><style>.bookify-link{text-decoration:none;cursor:pointer}.bookify-link .phone-mockup{transition:transform .35s ease,filter .35s ease}.bookify-link:hover .phone-mockup{transform:translateY(-12px);filter:drop-shadow(0 0 13px #59d8ff88)}.bookify-link:focus-visible{outline:3px solid #55dfff;outline-offset:8px;border-radius:20px}.bookify-heading-link{color:inherit;text-decoration:none}.bookify-heading-link:hover{color:#bcff48}</style></head>
+<body>
+    <!-- Animated loader integrated into the homepage -->
+    <div id="space-preloader" role="status" aria-label="Loading portfolio">
+      <div class="preloader-content"><div class="rocket-wrapper"><svg class="self-rotating-rocket" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 14C19 16 20 19 20 19H16.5L15 16.5L17 14Z" fill="#7c3aed"/><path d="M7 14C5 16 4 19 4 19H7.5L9 16.5L7 14Z" fill="#7c3aed"/><path d="M12 2C12 2 16 6 16 12C16 15.5 14.5 18 12 19C9.5 18 8 15.5 8 12C8 6 12 2 12 2Z" fill="white"/><circle cx="12" cy="10" r="2" fill="#00d4ff"/><path class="rocket-flame" d="M10 19.5C10 19.5 10.5 23 12 23C13.5 23 14 19.5 14 19.5H10Z" fill="#ff4d4d"/></svg></div><div class="loading-text">LOADING</div></div>
+    </div>
+    <!-- 3D Space Background Canvas -->
+    <canvas id="spaceCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" style="background: rgba(0, 0, 0, 0.95); box-shadow: rgba(0, 212, 255, 0.1) 0px 5px 30px;">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="MG.png" alt="MG logo" class="nav-custom-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">PROJECT</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#about">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Animated cosmic introduction -->
+    <section id="home" class="hero-section cosmic-hero">
+      <div class="container hero-stage">
+        <p class="hero-eyebrow">✦ GRAPHIC DESIGNER · UI/UX DESIGNER · 2026</p>
+        <div class="hero-wordmark" aria-label="Portfolio by Mazen Gasser">
+          <span class="hero-wordmark-kicker">WELCOME TO MY UNIVERSE</span>
+          <h1 class="cosmic-heading">PORT<span>FOLIO</span></h1>
+          <p class="hero-byline">BY <strong>MAZEN GASSER</strong></p>
+        </div>
+        <div class="hero-bottom"><p>MAZEN GASSER / CREATIVE PORTFOLIO / 2026</p><a href="#projects" class="explore-btn">EXPLORE MY WORK ↗</a></div>
+      </div>
+      <a href="#about" class="scroll-cue">SCROLL TO EXPLORE ↓</a>
+    </section>
+
+    <!-- About Me: six interactive categories -->
+    <section id="about" class="about-section about-redesign py-5">
+      <div class="container">
+        <div class="about-topline"><span class="eyebrow">01 / GET TO KNOW ME</span><h2 class="section-title">ABOUT ME</h2><p class="about-lead">Graphic Designer &amp; UI/UX Designer specializing in branding and meaningful digital experiences.</p></div>
+        <div class="about-intro-layout">
+          <div class="about-feature"><span class="feature-label">CREATIVE PROFILE</span><h3>Designing ideas<br><em>into experiences.</em></h3><p>I work across visual identity, digital product design, motion graphics, and multimedia. My focus is on combining creativity with clear, user-centered design.</p><div class="about-chips"><span>UI/UX DESIGN</span><span>BRANDING</span><span>MOTION GRAPHICS</span></div></div>
+          <div class="about-portrait-frame"><img src="avatar.png" alt="Illustrated portrait of Mazen Gasser" loading="lazy"><p class="about-portrait-name">MAZEN GASSER</p><span class="portrait-corner">✦ OPEN TO CREATE</span></div>
+        </div>
+        <div class="about-grid">
+          <details class="about-info-card" open><summary><span class="card-number">01</span><span class="card-title">EDUCATION</span><span class="card-toggle" aria-hidden="true">+</span></summary><div class="card-content"><div class="info-entry"><h4>Arab Open University</h4><p>Bachelor’s degree in Graphic Design and Multimedia Technology, specializing in Branding.</p></div><div class="info-entry"><h4>The Open University, UK</h4><p>Bachelor’s degree in Graphic Design and Multimedia Technology, specializing in Branding.</p></div></div></details>
+          <details class="about-info-card" open><summary><span class="card-number">02</span><span class="card-title">WORK EXPERIENCE</span><span class="card-toggle" aria-hidden="true">+</span></summary><div class="card-content"><div class="info-entry"><span class="entry-date">05/01/2026 – PRESENT · NEW CAIRO</span><h4>Technical Support</h4><p>Concentrix</p></div><div class="info-entry"><span class="entry-date">05/2025 – PRESENT · CAIRO</span><h4>Social Media Moderator</h4><p>Shahid Entertainment &amp; Yango Play</p></div><div class="info-entry"><span class="entry-date">02/2025 – 05/2025 · CAIRO</span><h4>Customer Support</h4><p>Turo · IntouchCX</p></div><div class="info-entry"><span class="entry-date">02/2025 – 05/2025 · CAIRO</span><h4>Shahid</h4><p>Shahid Entertainment</p></div><div class="info-entry"><span class="entry-date">FREELANCE · DATES NOT SPECIFIED</span><h4>Freelance Designer</h4><p>Branding, Graphic Design &amp; UI/UX Projects</p></div></div></details>
+          <details class="about-info-card"><summary><span class="card-number">03</span><span class="card-title">DESIGN EXPERTISE</span><span class="card-toggle" aria-hidden="true">+</span></summary><div class="card-content"><p>My primary specializations are <strong>UI/UX Design</strong> and <strong>Branding</strong>.</p><div class="tag-cloud"><span>Branding</span><span>UI/UX Design</span><span>Motion Graphics</span><span>Video Editing</span><span>Basic 2D Animation</span></div></div></details>
+          <details class="about-info-card"><summary><span class="card-number">04</span><span class="card-title">PROFESSIONAL SKILLS</span><span class="card-toggle" aria-hidden="true">+</span></summary><div class="card-content"><div class="tag-cloud"><span>Customer Support &amp; Handling</span><span>Team Collaboration</span><span>Time Management</span><span>Attention to Detail</span><span>Creativity</span></div></div></details>
+          <details class="about-info-card"><summary><span class="card-number">05</span><span class="card-title">LANGUAGES</span><span class="card-toggle" aria-hidden="true">+</span></summary><div class="card-content"><div class="language-row"><strong>Arabic</strong><span>Native</span></div><div class="language-row"><strong>English</strong><span>B2 · Intermediate</span></div><div class="language-row"><strong>French</strong><span>A2 · Elementary</span></div></div></details>
+          <details class="about-info-card"><summary><span class="card-number">06</span><span class="card-title">CERTIFICATIONS &amp; COURSES</span><span class="card-toggle" aria-hidden="true">+</span></summary><div class="card-content"><div class="info-entry"><h4>3D Environment</h4><p>Information Technology Institute (ITI) · Completed course</p></div><div class="info-entry"><h4>UI/UX Design Diploma</h4><p>ITI and the Ministry of Communications · Completed diploma</p></div><div class="info-entry"><h4>2D Graphic Design</h4><p>Information Technology Institute (ITI) · Completed course</p></div></div></details>
+        </div>
+        <div class="about-tools"><span class="feature-label">DESIGN TOOLKIT</span><div class="software-icons d-flex justify-content-center gap-3 flex-wrap"><div class="software-icon ps" title="Photoshop">Ps</div><div class="software-icon ai" title="Illustrator">Ai</div><div class="software-icon ae" title="After Effects">Ae</div><div class="software-icon pr" title="Premiere Pro">Pr</div><div class="software-icon figma" title="Figma"><i class="fab fa-figma"></i></div></div></div>
+      </div>
+    </section>
+
+    <!-- CHOCO VIVA Branding Gallery -->
+    <section id="projects" class="cv-projects"><div class="cv-wrap"><div class="cv-heading"><span>SELECTED BRAND IDENTITY PROJECT / 2026</span><h2>BRANDING <em>✦</em></h2><p>CHOCO VIVA — Explore the brand across campaigns, stationery, digital media and interactive experiences.</p></div><div class="cv-grid"><a class="cv-card" href="choco-viva.html#indoor" aria-label="View INDOOR POSTERS gallery"><img src="choco-viva/poster indoor.png" loading="lazy" alt="INDOOR POSTERS preview"><span class="cv-card-content"><small>CHOCO VIVA / 01</small><strong>INDOOR POSTERS</strong><span>Vertical mall advertising <b aria-hidden="true">↗</b></span></span></a>
+<a class="cv-card" href="choco-viva.html#outdoor" aria-label="View OUTDOOR POSTERS gallery"><img src="choco-viva/poster outdoor.png" loading="lazy" alt="OUTDOOR POSTERS preview"><span class="cv-card-content"><small>CHOCO VIVA / 02</small><strong>OUTDOOR POSTERS</strong><span>Horizontal street billboards <b aria-hidden="true">↗</b></span></span></a>
+<a class="cv-card" href="choco-viva.html#packaging" aria-label="View PACKAGING & STATIONERY gallery"><img src="choco-viva/70db8d2c-1ff3-4448-a8ac-6533d77c6088.png" loading="lazy" alt="PACKAGING & STATIONERY preview"><span class="cv-card-content"><small>CHOCO VIVA / 03</small><strong>PACKAGING & STATIONERY</strong><span>Brand identity across printed materials <b aria-hidden="true">↗</b></span></span></a>
+<a class="cv-card" href="choco-viva.html#social" aria-label="View SOCIAL MEDIA gallery"><img src="choco-viva/socail media 1.png" loading="lazy" alt="SOCIAL MEDIA preview"><span class="cv-card-content"><small>CHOCO VIVA / 04</small><strong>SOCIAL MEDIA</strong><span>Instagram campaign mockups <b aria-hidden="true">↗</b></span></span></a>
+<a class="cv-card" href="choco-viva.html#interactive" aria-label="View INTERACTIVE DESIGN gallery"><img src="choco-viva/interactive poster.png" loading="lazy" alt="INTERACTIVE DESIGN preview"><span class="cv-card-content"><small>CHOCO VIVA / 05</small><strong>INTERACTIVE DESIGN</strong><span>Interactive mall puzzle experience <b aria-hidden="true">↗</b></span></span></a>
+<a class="cv-card" href="choco-viva.html#rollup" aria-label="View ROLL-UP BANNERS gallery"><img src="choco-viva/Rollup mazen.png" loading="lazy" alt="ROLL-UP BANNERS preview"><span class="cv-card-content"><small>CHOCO VIVA / 06</small><strong>ROLL-UP BANNERS</strong><span>Brand promotional roll-up displays <b aria-hidden="true">↗</b></span></span></a></div><a class="cv-view-all" href="choco-viva.html">EXPLORE THE FULL PROJECT ↗</a></div></section>
+    <!-- Interactive web design portfolio -->
+    <section class="projects-section py-5" id="web-design">
+      <div class="container">
+        <h2 class="section-title text-center mb-3">WEB DESIGN</h2>
+        <p class="text-center web-intro">Explore my interactive website projects. Click a project to launch its working website.</p>
+        <div class="web-work-grid">
+          <a class="web-work-card" href="websites/lawfirm-layout-fixed/index.html" aria-label="Open Law Firm website">
+            <div class="web-work-preview"><img src="lawfirm-preview.png" alt="Law Firm website preview" loading="lazy"></div>
+            <div class="web-work-info"><span>01 / WEB DESIGN</span><h3>LAW FIRM WEBSITE</h3><p>Responsive legal services website with interactive navigation and motion.</p><strong>EXPLORE WEBSITE ↗</strong></div>
+          </a>
+          <a class="web-work-card" href="websites/livecart/index.html" aria-label="Open LiveCart website">
+            <div class="web-work-preview"><img src="websites/livecart/assets/hero.jpg" alt="LiveCart shopping website preview" loading="lazy"></div>
+            <div class="web-work-info"><span>02 / E-COMMERCE</span><h3>LIVECART WEBSITE</h3><p>Interactive shopping and live commerce experience with responsive layouts.</p><strong>EXPLORE WEBSITE ↗</strong></div>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Live Streaming App Section -->
+    <section class="app-showcase py-5 livecart-clickable" aria-label="LiveCart interactive Figma prototype">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center">
+                    <div class="showcase-globe-3d"></div>
+                </div>
+                <div class="col-lg-8">
+                    <a class="app-screens d-flex justify-content-center gap-3 flex-wrap livecart-figma-link" href="livecart-figma.html" aria-label="Open interactive LiveCart Figma design">
+                        <div class="phone-mockup">
+                            <img loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('missing-art')" src="portfolio.image/livecart 1.png" alt="LiveCart app splash screen">
+                        </div>
+                        <div class="phone-mockup featured">
+                            <img loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('missing-art')" src="portfolio.image/live cart 2.png" alt="LiveCart live shopping screen">
+                            
+                        </div>
+                        <div class="phone-mockup">
+                            <img loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('missing-art')" src="portfolio.image/live cart 3.png" alt="LiveCart categories screen">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <h3 class="showcase-title text-center mt-5"><a href="livecart-figma.html" class="livecart-title-link">LIVE STREAMING APP ↗</a></h3>
+            <p class="text-center" style="color:#b5d9e9;margin-top:12px"><a href="livecart-figma.html" class="livecart-title-link">Click the app screens to explore the interactive Figma design →</a></p>
+        </div>
+    </section>
+
+    <!-- Reading App Redesign Section -->
+    <section class="app-showcase py-5 bookify-clickable">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <a class="app-screens d-flex justify-content-center gap-3 flex-wrap bookify-link" href="bookify-figma.html" aria-label="Open interactive Bookify app design">
+                        <div class="phone-mockup">
+                            <img loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('missing-art')" src="portfolio.image/bookfiy 1.png" alt="Bookify welcome screen">
+                        </div>
+                        <div class="phone-mockup featured">
+                            <img loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('missing-art')" src="portfolio.image/bookfiy 2.png" alt="Bookify wishlist screen"> 
+                        </div>
+                        <div class="phone-mockup">
+                            <img loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('missing-art')" src="portfolio.image/bookfiy 3.png" alt="Bookify book reading screen">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="showcase-planet-3d"></div>
+                </div>
+            </div>
+            <h3 class="showcase-title text-center mt-5"><a class="bookify-heading-link" href="bookify-figma.html">READING APP REDESIGN ↗</a></h3>
+            <p class="text-center"><a class="bookify-heading-link" href="bookify-figma.html">Click to explore Bookify interactive preview →</a></p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+  <section id="contact" class="contact-section py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">CONTACT US</h2>
+        <div class="row justify-content-center">
+            <div class="col-11 col-md-5 col-lg-4">
+                <div class="contact-buttons d-flex flex-column gap-3">
+                    
+                    <a href="https://wa.me/201552858610" class="contact-btn d-flex align-items-center" target="_blank" rel="noopener noreferrer">
+                        <div class="icon-wrapper"><i class="fab fa-whatsapp"></i></div>
+                        <span class="contact-text">WHATSAPP</span>
+                    </a>
+                    
+                    <a href="mailto:mazengasser100@gmail.com" class="contact-btn d-flex align-items-center">
+                        <div class="icon-wrapper"><i class="fas fa-envelope"></i></div>
+                        <span class="contact-text">EMAIL</span>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/mazen-gasser-35049525a" class="contact-btn d-flex align-items-center" target="_blank" rel="noopener noreferrer">
+                        <div class="icon-wrapper"><i class="fab fa-linkedin-in"></i></div>
+                        <span class="contact-text">LINKEDIN</span>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

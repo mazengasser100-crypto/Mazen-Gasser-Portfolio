@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Not Exist</title>
+    <link rel="icon" type="image/x-icon" href="portfolio.image/MG.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <style>
+        /* ===== Global Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        /* ===== Three.js Background Canvas ===== */
+        #spaceCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #000000;
+        }
+
+        /* ===== Navigation Layout ===== */
+        .error-nav {
+            position: absolute;
+            top: 40px;
+            right: 6%;
+            z-index: 10;
+        }
+
+        .error-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .error-nav .nav-link {
+            font-family: 'Orbitron', sans-serif;
+            color: #ffffff !important;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .error-nav .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        /* ===== Main 404 Layout Content ===== */
+        .error-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            user-select: none;
+        }
+
+        /* Visual Structure for 4 [Planet] 4 */
+        .error-code-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .digit {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(8rem, 22vw, 16rem);
+            font-weight: 900;
+            line-height: 1;
+            color: #ffffff;
+            letter-spacing: -5px;
+        }
+
+        /* Central Stylized Planet */
+        .center-planet {
+            width: clamp(6.5rem, 18vw, 13rem);
+            height: clamp(6.5rem, 18vw, 13rem);
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #a2e0ff 0%, #3a97ff 35%, #0050c7 70%, #001f60 100%);
+            box-shadow: 
+                inset -15px -15px 40px rgba(0, 0, 0, 0.8),
+                inset 15px 15px 35px rgba(255, 255, 255, 0.4),
+                0 0 45px rgba(58, 151, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+            margin-top: 15px;
+            animation: planetFloat 5s ease-in-out infinite;
+        }
+
+        /* Fluid dynamic texture lines overlay inside the planet */
+        .center-planet::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            top: 0;
+            left: -50%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 15px,
+                rgba(255, 255, 255, 0.08) 15px,
+                rgba(255, 255, 255, 0.08) 30px,
+                rgba(0, 80, 199, 0.15) 30px,
+                rgba(0, 80, 199, 0.15) 45px
+            );
+            filter: blur(2px);
+        }
+
+        /* Subtle top glare highlight */
+        .center-planet::after {
+            content: '';
+            position: absolute;
+            top: 8%;
+            left: 15%;
+            width: 30%;
+            height: 20%;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50% 60% 50% 40%;
+            filter: blur(3px);
+            transform: rotate(-15deg);
+        }
+
+        /* Dynamic floating physics */
+        @keyframes planetFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* ===== Subtitle text: NOT EXIST ===== */
+        .error-message {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.2rem, 3.5vw, 2.3rem);
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 6px;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .error-nav {
+                top: 30px;
+                right: 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .error-nav ul {
+                gap: 20px;
+            }
+            .error-code-wrapper {
+                gap: 12px;
+            }
+        }
+    .return-home{display:inline-block;margin-top:30px;color:#00d4ff;border:1px solid #00d4ff;padding:14px 24px;text-decoration:none;letter-spacing:2px;border-radius:40px;font-family:Orbitron,sans-serif;transition:.25s}.return-home:hover{background:#00d4ff;color:#000} @media(max-width:480px){.error-nav ul{gap:10px}.error-nav .nav-link{font-size:.65rem;letter-spacing:0}.digit{font-size:28vw}.center-planet{width:22vw;height:22vw}} </style>
+</head>
+<body>
+
+    <canvas id="spaceCanvas"></canvas>
+
+    <nav class="error-nav">
+        <ul>
+            <li><a class="nav-link" href="index.html#home">HOME</a></li>
+            <li><a class="nav-link" href="index.html#projects">PROJECT</a></li>
+            <li><a class="nav-link" href="index.html#about">ABOUT</a></li>
+            <li><a class="nav-link" href="index.html#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <div class="error-container">
+        <div class="error-code-wrapper">
+            <div class="digit">4</div>
+            <div class="center-planet"></div>
+            <div class="digit">4</div>
+        </div>
+        <h2 class="error-message">Lost in space</h2><a href="index.html" class="return-home">← RETURN TO EARTH</a>
+    </div>
+
+    <script>
+        let scene, camera, renderer, stars;
+        let mouseX = 0, mouseY = 0;
+        let targetMouseX = 0, targetMouseY = 0;
+
+        function initThreeJS() {
+            // Scene Initialization
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x000000);
+
+            // Camera Setup Configuration
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 50;
+
+            // Engine WebGL Renderer Initializer
+            renderer = new THREE.WebGLRenderer({
+                canvas: document.getElementById('spaceCanvas'),
+                antialias: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Generate Cosmic Starfield Background Array (Kept identical to original setup)
+            createStars();
+            
+            // Basic Environment Illumination Lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+
+            animate();
+        }
+
+        function createStars() {
+            const starGeometry = new THREE.BufferGeometry();
+            const starCount = 3000;
+            const positions = new Float32Array(starCount * 3);
+            const colors = new Float32Array(starCount * 3);
+            const sizes = new Float32Array(starCount);
+
+            for (let i = 0; i < starCount; i++) {
+                const i3 = i * 3;
+                
+                positions[i3] = (Math.random() - 0.5) * 200;
+                positions[i3 + 1] = (Math.random() - 0.5) * 200;
+                positions[i3 + 2] = (Math.random() - 0.5) * 200;
+
+                const starType = Math.random();
+                if (starType > 0.95) {
+                    // Blue highlights
+                    colors[i3] = 0.6;
+                    colors[i3 + 1] = 0.8;
+                    colors[i3 + 2] = 1;
+                } else if (starType > 0.9) {
+                    // Soft Gold hues
+                    colors[i3] = 1;
+                    colors[i3 + 1] = 0.95;
+                    colors[i3 + 2] = 0.7;
+                } else {
+                    // Standard structural crisp stellar glow
+                    colors[i3] = 1;
+                    colors[i3 + 1] = 1;
+                    colors[i3 + 2] = 1;
+                }
+
+                sizes[i] = Math.random() * 2 + 0.5;
+            }
+
+            starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            starGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            starGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+            const starMaterial = new THREE.PointsMaterial({
+                size: 0.5,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.85,
+                sizeAttenuation: true
+            });
+
+            stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Interpolation engine loops for smooth panning logic 
+            targetMouseX += (mouseX - targetMouseX) * 0.05;
+            targetMouseY += (mouseY - targetMouseY) * 0.05;
+
+            // Coordinates calculation for background star parralax motion drift
+            if (stars) {
+                stars.rotation.x = targetMouseY * 0.08;
+                stars.rotation.y = targetMouseX * 0.08;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Viewport Mouse Input listener
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        // Window Vector Scaling Adjustments Listener 
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Start initialization loop routine sequence execution when document mounts
+        document.addEventListener('DOMContentLoaded', initThreeJS);
+    </script>
+</body>
+</html>
